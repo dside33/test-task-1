@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ test.title }}{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+    {% if isCurrent %}
+        <div class="col-md-8">
+            <h1 class="text-center mb-4">{{ test.title }}</h1>
+            <h2 class="text-center mb-4">{{ test.question }}</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_answer">Answer:</label>
+                    {{ form.answer }}
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    {% else %}
+    <h4 class="text-center mb-4">Начните с вопроса №{{current_quest}}</h4>
+    {% endif %}
+    </div>
+{% endblock %}

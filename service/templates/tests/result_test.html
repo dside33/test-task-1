@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Test Results{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="text-center mb-4">Test Results</h1>
+      <div class="list-group">
+        {% for test in tests %}
+        <div class="list-group-item">
+          <h5 class="mb-1">{{ test.question }}</h5>
+          {% if test.isCorrect %}
+          <span class="badge bg-success">Correct</span>
+          {% else %}
+          <span class="badge bg-danger">Incorrect</span>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

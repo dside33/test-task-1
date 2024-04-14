@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Список тестовых наборов{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  {% for test_set in sets %}
+  <div class="col-md-6">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">{{ test_set.set_name }}</h5>
+        <a href="{% url 'test_detail' set_id=test_set.id test_id=1 %}" class="btn btn-primary">Пройти тесты</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
